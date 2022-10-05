@@ -4,6 +4,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	"github.com/cosmos/cosmos-sdk/std"
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/elesto-dao/elesto/v3/x/credential"
+	"github.com/elesto-dao/elesto/v3/x/did"
 )
 
 // MakeEncodingConfig creates an EncodingConfig to properly handle all the messages
@@ -12,6 +14,8 @@ func MakeEncodingConfig(managers []module.BasicManager) func() params.EncodingCo
 		encodingConfig := params.MakeTestEncodingConfig()
 		std.RegisterLegacyAminoCodec(encodingConfig.Amino)
 		std.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+		did.RegisterInterfaces(encodingConfig.InterfaceRegistry)
+		credential.RegisterInterfaces(encodingConfig.InterfaceRegistry)
 		manager := mergeBasicManagers(managers)
 		manager.RegisterLegacyAminoCodec(encodingConfig.Amino)
 		manager.RegisterInterfaces(encodingConfig.InterfaceRegistry)

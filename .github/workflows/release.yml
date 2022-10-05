@@ -1,0 +1,56 @@
+name: Release
+
+on:
+  pull_request:
+  push:
+    branches:
+      - chains/elesto/*
+
+jobs:
+  Build-and-Publish:
+    runs-on: ubuntu-latest
+    steps:
+      - id: release-please
+        name: Release Please
+        uses: google-github-actions/release-please-action@v3
+        with:
+          release-type: node
+          package-name: elesto-issuer-dashboard
+          changelog-types: >-
+            [
+              {"type":"feat","section":"Features","hidden":false},
+              {"type":"fix","section":"Bug Fixes","hidden":false},
+              {"type":"chore","section":"Miscellaneous","hidden":true}
+            ]
+      - name: Checkout
+        uses: actions/checkout@v3
+        if: steps.release-please.outputs.release_created
+        with:
+          fetch-depth: 0
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+        if: steps.release-please.outputs.release_created
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+        if: steps.release-please.outputs.release_created
+      - name: Log in to the Container registry
+        uses: docker/login-action@v2
+        if: steps.release-please.outputs.release_created
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Image metadata
+        id: meta
+        uses: docker/metadata-action@v4
+        if: steps.release-please.outputs.release_created
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: type=raw,value=${{ steps.release-please.outputs.tag_name }}
+      - name: Build and push
+        uses: docker/build-push-action@v3
+        if: steps.release-please.outputs.release_created
+        with:
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
