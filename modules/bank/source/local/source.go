@@ -9,8 +9,8 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/forbole/juno/v3/node/local"
 
-	"github.com/forbole/bdjuno/v3/modules/bank/source"
-	"github.com/forbole/bdjuno/v3/types"
+	"github.com/elesto-dao/bdjuno/modules/bank/source"
+	"github.com/elesto-dao/bdjuno/types"
 )
 
 var (

@@ -1,13 +1,13 @@
 package modules
 
 import (
-	"github.com/forbole/bdjuno/v3/modules/actions"
-	"github.com/forbole/bdjuno/v3/modules/types"
+	"github.com/elesto-dao/bdjuno/modules/actions"
+	"github.com/elesto-dao/bdjuno/modules/types"
 
 	"github.com/forbole/juno/v3/modules/pruning"
 	"github.com/forbole/juno/v3/modules/telemetry"
 
-	"github.com/forbole/bdjuno/v3/modules/slashing"
+	"github.com/elesto-dao/bdjuno/modules/slashing"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
@@ -15,21 +15,21 @@ import (
 	"github.com/forbole/juno/v3/modules/messages"
 	"github.com/forbole/juno/v3/modules/registrar"
 
-	"github.com/forbole/bdjuno/v3/utils"
+	"github.com/elesto-dao/bdjuno/utils"
 
-	"github.com/forbole/bdjuno/v3/database"
-	"github.com/forbole/bdjuno/v3/modules/auth"
-	"github.com/forbole/bdjuno/v3/modules/bank"
-	"github.com/forbole/bdjuno/v3/modules/consensus"
-	"github.com/forbole/bdjuno/v3/modules/distribution"
-	"github.com/forbole/bdjuno/v3/modules/feegrant"
+	"github.com/elesto-dao/bdjuno/database"
+	"github.com/elesto-dao/bdjuno/modules/auth"
+	"github.com/elesto-dao/bdjuno/modules/bank"
+	"github.com/elesto-dao/bdjuno/modules/consensus"
+	"github.com/elesto-dao/bdjuno/modules/distribution"
+	"github.com/elesto-dao/bdjuno/modules/feegrant"
 
-	dailyrefetch "github.com/forbole/bdjuno/v3/modules/daily_refetch"
-	"github.com/forbole/bdjuno/v3/modules/gov"
-	"github.com/forbole/bdjuno/v3/modules/mint"
-	"github.com/forbole/bdjuno/v3/modules/modules"
-	"github.com/forbole/bdjuno/v3/modules/pricefeed"
-	"github.com/forbole/bdjuno/v3/modules/staking"
+	dailyrefetch "github.com/elesto-dao/bdjuno/modules/daily_refetch"
+	"github.com/elesto-dao/bdjuno/modules/gov"
+	"github.com/elesto-dao/bdjuno/modules/mint"
+	"github.com/elesto-dao/bdjuno/modules/modules"
+	"github.com/elesto-dao/bdjuno/modules/pricefeed"
+	"github.com/elesto-dao/bdjuno/modules/staking"
 )
 
 // UniqueAddressesParser returns a wrapper around the given parser that removes all duplicated addresses

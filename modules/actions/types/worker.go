@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/forbole/bdjuno/v3/modules/actions/logging"
+	"github.com/elesto-dao/bdjuno/modules/actions/logging"
 
 	"github.com/rs/zerolog/log"
 )

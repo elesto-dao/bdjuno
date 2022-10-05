@@ -3,7 +3,7 @@ package pricefeed
 import (
 	"gopkg.in/yaml.v3"
 
-	"github.com/forbole/bdjuno/v3/types"
+	"github.com/elesto-dao/bdjuno/types"
 )
 
 // Config contains the configuration about the pricefeed module

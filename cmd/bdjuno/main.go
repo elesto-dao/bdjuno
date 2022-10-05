@@ -2,21 +2,20 @@ package main
 
 import (
 	"github.com/cosmos/cosmos-sdk/types/module"
+	"github.com/elesto-dao/elesto/v3/app"
 	"github.com/forbole/juno/v3/cmd"
 	initcmd "github.com/forbole/juno/v3/cmd/init"
 	parsetypes "github.com/forbole/juno/v3/cmd/parse/types"
 	startcmd "github.com/forbole/juno/v3/cmd/start"
 	"github.com/forbole/juno/v3/modules/messages"
 
-	migratecmd "github.com/forbole/bdjuno/v3/cmd/migrate"
-	parsecmd "github.com/forbole/bdjuno/v3/cmd/parse"
+	migratecmd "github.com/elesto-dao/bdjuno/cmd/migrate"
+	parsecmd "github.com/elesto-dao/bdjuno/cmd/parse"
 
-	"github.com/forbole/bdjuno/v3/types/config"
+	"github.com/elesto-dao/bdjuno/types/config"
 
-	"github.com/forbole/bdjuno/v3/database"
-	"github.com/forbole/bdjuno/v3/modules"
-
-	gaiaapp "github.com/cosmos/gaia/v7/app"
+	"github.com/elesto-dao/bdjuno/database"
+	"github.com/elesto-dao/bdjuno/modules"
 )
 
 func main() {
@@ -55,7 +54,7 @@ func main() {
 // This should be edited by custom implementations if needed.
 func getBasicManagers() []module.BasicManager {
 	return []module.BasicManager{
-		gaiaapp.ModuleBasics,
+		app.ModuleBasics,
 	}
 }
 
