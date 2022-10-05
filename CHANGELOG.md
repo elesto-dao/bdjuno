@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/elesto-dao/bdjuno/compare/v1.0.0...v1.0.1) (2022-10-05)
+
+
+### Bug Fixes
+
+* add ssh-agent to release ([ba9debd](https://github.com/elesto-dao/bdjuno/commit/ba9debd7ac68a81280f3ed12e1ff33233a87a231))
+
 ## 1.0.0 (2022-10-05)
 
 
