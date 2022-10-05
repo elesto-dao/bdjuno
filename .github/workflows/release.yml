@@ -22,6 +22,11 @@ jobs:
               {"type":"fix","section":"Bug Fixes","hidden":false},
               {"type":"chore","section":"Miscellaneous","hidden":true}
             ]
+      - name: Setup ssh-agent
+        uses: webfactory/ssh-agent@v0.5.4
+        if: steps.release-please.outputs.release_created
+        with:
+          ssh-private-key: ${{ secrets.ELESTO_DEPLOY_KEY }}
       - name: Checkout
         uses: actions/checkout@v3
         if: steps.release-please.outputs.release_created
