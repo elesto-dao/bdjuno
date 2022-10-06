@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/elesto-dao/bdjuno/compare/v1.0.1...v1.0.2) (2022-10-06)
+
+
+### Bug Fixes
+
+* github release workflow ([ad7579b](https://github.com/elesto-dao/bdjuno/commit/ad7579baf2c03631ee247e836ad34d4f0528c6d0))
+
 ## [1.0.1](https://github.com/elesto-dao/bdjuno/compare/v1.0.0...v1.0.1) (2022-10-05)
 
 
