@@ -8,7 +8,7 @@ import (
 
 	"github.com/elesto-dao/bdjuno/types"
 
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+	minttypes "github.com/elesto-dao/elesto/v4/x/mint/types"
 	"github.com/rs/zerolog/log"
 )
 

@@ -4,7 +4,8 @@ import (
 	"fmt"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+	"github.com/elesto-dao/elesto/v4/x/mint"
+	minttypes "github.com/elesto-dao/elesto/v4/x/mint/types"
 	"github.com/forbole/juno/v3/node/local"
 
 	mintsource "github.com/elesto-dao/bdjuno/modules/mint/source"
@@ -30,17 +31,19 @@ func NewSource(source *local.Source, querier minttypes.QueryServer) *Source {
 
 // GetInflation implements mintsource.Source
 func (s Source) GetInflation(height int64) (sdk.Dec, error) {
-	ctx, err := s.LoadHeight(height)
-	if err != nil {
-		return sdk.Dec{}, fmt.Errorf("error while loading height: %s", err)
-	}
 
-	res, err := s.querier.Inflation(sdk.WrapSDKContext(ctx), &minttypes.QueryInflationRequest{})
-	if err != nil {
-		return sdk.Dec{}, err
+	// TODO replace with the native function in the mint module
+	currentEpoch := height / mint.BlocksPerEpoch
+	startSupply := sdk.NewDec(200_000_000_000_000)
+	for i := int64(0); i < currentEpoch; i++ {
+		startSupply = startSupply.Add(sdk.NewDec(mint.BlocksPerEpoch * minttypes.BlockInflationDistribution[i].BlockInflation))
 	}
-
-	return res.Inflation, nil
+	endSupply := startSupply.Add(sdk.NewDec(mint.BlocksPerEpoch * minttypes.BlockInflationDistribution[currentEpoch].BlockInflation))
+	// this is inflation between 0-1
+	inflation := endSupply.Sub(startSupply).Quo(startSupply)
+	// adjust
+	inflation = inflation.Mul(sdk.NewDec(10_000)).TruncateDec().Quo(sdk.NewDec(100))
+	return inflation, nil
 }
 
 // Params implements mintsource.Source

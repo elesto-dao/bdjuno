@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+	minttypes "github.com/elesto-dao/elesto/v4/x/mint/types"
 
 	"github.com/elesto-dao/bdjuno/types"
 
@@ -73,14 +73,7 @@ func (suite *DbTestSuite) TestBigDipperDb_SaveInflation() {
 }
 
 func (suite *DbTestSuite) TestBigDipperDb_SaveMintParams() {
-	mintParams := minttypes.NewParams(
-		"udaric",
-		sdk.NewDecWithPrec(4, 1),
-		sdk.NewDecWithPrec(8, 1),
-		sdk.NewDecWithPrec(4, 1),
-		sdk.NewDecWithPrec(8, 1),
-		5006000,
-	)
+	mintParams := minttypes.DefaultParams()
 	err := suite.database.SaveMintParams(types.NewMintParams(mintParams, 10))
 	suite.Require().NoError(err)
 

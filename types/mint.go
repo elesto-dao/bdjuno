@@ -1,6 +1,6 @@
 package types
 
-import minttypes "github.com/cosmos/cosmos-sdk/x/mint/types"
+import minttypes "github.com/elesto-dao/elesto/v4/x/mint/types"
 
 // MintParams represents the x/mint parameters
 type MintParams struct {
