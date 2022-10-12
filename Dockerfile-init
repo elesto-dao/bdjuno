@@ -1,0 +1,8 @@
+FROM alpine:3.12 as builder
+COPY database/schema/ /src/database/schema/
+RUN cat /src/database/schema/*.sql > /src/database/schema/bdjuno.sql
+
+FROM alpine:3.12
+RUN apk --no-cache add postgresql-client
+COPY --from=builder /src/database/schema/bdjuno.sql /src/database/schema/bdjuno.sql
+ENTRYPOINT [ "psql" ]
