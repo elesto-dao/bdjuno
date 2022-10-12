@@ -4,8 +4,8 @@ import (
 	"github.com/cosmos/cosmos-sdk/simapp/params"
 	"github.com/cosmos/cosmos-sdk/std"
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/elesto-dao/elesto/v3/x/credential"
-	"github.com/elesto-dao/elesto/v3/x/did"
+	"github.com/elesto-dao/elesto/v4/x/credential"
+	"github.com/elesto-dao/elesto/v4/x/did"
 )
 
 // MakeEncodingConfig creates an EncodingConfig to properly handle all the messages

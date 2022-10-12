@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/cosmos/cosmos-sdk v0.45.8
-	github.com/elesto-dao/elesto/v3 v3.0.0-rc2
+	github.com/elesto-dao/elesto/v4 v4.0.0-rc1
 	github.com/forbole/juno/v3 v3.4.0
 	github.com/go-co-op/gocron v1.17.0
 	github.com/gogo/protobuf v1.3.3

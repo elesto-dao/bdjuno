@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/cosmos/cosmos-sdk/types/module"
-	"github.com/elesto-dao/elesto/v3/app"
+	"github.com/elesto-dao/elesto/v4/app"
 	"github.com/forbole/juno/v3/cmd"
 	initcmd "github.com/forbole/juno/v3/cmd/init"
 	parsetypes "github.com/forbole/juno/v3/cmd/parse/types"
